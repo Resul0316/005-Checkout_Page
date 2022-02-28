@@ -12,6 +12,7 @@ window.addEventListener("load", ()=>{
 //capturing
 let productsDiv = document.querySelector(".products");
 productsDiv.addEventListener("click", (e)=>{
+    //pivot element
     let quantityP = e.target.parentElement.parentElement.querySelector("#product-quantity");
     // console.log(quantityP);
     // console.log(event.target);
@@ -64,6 +65,7 @@ const calculateProductTotal = (quantityP) =>{
     let productPrice = quantityP.parentElement.parentElement.querySelector("strong");
     let productTotalPriceDiv = quantityP.parentElement.parentElement.querySelector(".product-line-price");
 
+    //tofixed virgulden sonraki basamak sayisini belirler
     productTotalPriceDiv.innerText = (quantityP.innerText * productPrice.innerText).toFixed(2);
 
     calculateCartTotal();
@@ -75,6 +77,7 @@ const calculateCartTotal = () =>{
     // console.log(productTotalPriceDivs);
     let subtotal = 0;
     productTotalPriceDivs.forEach(eachProductTotalPriceDiv=>{
+        //parseFloat convert etmek icin kullanilir
         subtotal += parseFloat(eachProductTotalPriceDiv.innerText)
     });
     console.log(subtotal);
